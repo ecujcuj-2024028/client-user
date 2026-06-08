@@ -1,5 +1,5 @@
 import { TouchableOpacity, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { COLORS, SPACING, FONT_SIZE } from '../constants/theme';
+import { COLORS, SPACING, FONT_SIZE } from '../../constants/theme';
 
 const Button = ({
     title,
@@ -11,11 +11,11 @@ const Button = ({
 }) => {
     const isSecondary = variant === "secondary";
 
-    retunn(
+    return (
         <TouchableOpacity
             style={[
                 styles.button,
-                isSecondary ? style.secondary : styles.primary,
+                isSecondary ? styles.buttonSecondary : styles.buttonPrimary,
                 loading && styles.buttonDisabled,
                 style
             ]}
@@ -30,8 +30,8 @@ const Button = ({
                 />
             ) : (
                 <Text style={[
-                    style.text, isSecondary ?
-                        style.textSecondary : styles.textPrimary
+                    styles.text, isSecondary ?
+                        styles.textSecondary : styles.textPrimary
                 ]}
                 >
                     {title}
